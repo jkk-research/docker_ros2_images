@@ -5,5 +5,6 @@ RUN apt-get update \
     nano \
     && rm -rf /var/lib/apt/lists*
 
-ENTRYPOINT ["/bin/bash", "scripts/gps_entrypoint.sh"]
-CMD ["bash"]
+WORKDIR /home
+COPY ./scripts/gps_entrypoint.sh .
+ENTRYPOINT ["/bin/bash", "/home/gps_entrypoint.sh"]
