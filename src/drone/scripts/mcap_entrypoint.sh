@@ -1,8 +1,4 @@
 #!/bin/bash
-
-
-#set -e
-
 function ros_source_env() 
 {
 	if [ -f "$1" ]; then
@@ -25,10 +21,9 @@ else
 fi
 
 echo "ROS_DISTRO $ROS_DISTRO"
-# echo "ROS_ROOT   $ROS_ROOT"
+#echo "ROS_ROOT   $ROS_ROOT"
 
 
-source /opt/ros/humble/install/setup.bash
-source /home/ros2_ws/install/local_setup.bash
-# ros2 launch duro_gps_driver duro_example.launch.py
+source /opt/ros/$ROS_DISTRO/install/setup.bash
+#source /home/ros2_ws/install/local_setup.bash
 /bin/bash

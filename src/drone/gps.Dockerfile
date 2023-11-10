@@ -29,6 +29,8 @@ RUN mkdir -p /home/ros2_ws/src \
     && source /opt/ros/humble/install/setup.bash \
     && colcon build --packages-select duro_gps_driver
 
+## ros2 launch duro_gps_driver duro_example.launch.py
+
 WORKDIR /home
 COPY ./scripts/gps_entrypoint.sh .
 ENTRYPOINT ["/bin/bash", "/home/gps_entrypoint.sh"]
