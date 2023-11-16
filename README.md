@@ -1,14 +1,7 @@
 # docker_ros2_images
 ROS2 docker images
 
-### Pull original image
-``` bash
-docker pull dustynv/ros:humble-ros-core-l4t-r32.7.1
-```
-
-``` bash
-docker pull dustynv/ros:iron-desktop-l4t-r32.7.1
-```
+## Structure
 
 ```mermaid
 graph TD;
@@ -56,6 +49,13 @@ docker run -it --rm -v /home/nvidia/bag/:/bag --privileged=true --network=host -
 ### Run LIDAR Image
 ```bash
 docker run -it --rm --privileged=true --network=host --name lidar1 drone:lidar
+```
+### Run Jetson Humble Image
+
+It's just a base image, but in case you need it:
+
+```bash
+docker run -it --rm --privileged=true --network=host --name jetson1 drone:jetson 
 ```
 
 
