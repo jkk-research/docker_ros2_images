@@ -24,6 +24,6 @@ echo "ROS_DISTRO $ROS_DISTRO"
 # echo "ROS_ROOT   $ROS_ROOT"
 
 
-source /opt/ros/humble/$ROS_DISTRO/setup.bash
+source /opt/ros/$ROS_DISTRO/setup.bash
 source /home/ros2_ws/install/local_setup.bash
 /bin/bash
