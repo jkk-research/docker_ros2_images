@@ -34,7 +34,7 @@ docker build -f lidar.Dockerfile -t drone:lidar .
 
 ### Run GPS Image
 ```bash
-docker run -it --rm --privileged=true --network=host --name gps1 drone:gps
+docker run -it --rm --privileged=true --network=host --ipc=host --pid=host --name gps1 drone:gps
 ```
 
 ``` bash
@@ -43,19 +43,19 @@ ros2 launch duro_gps_driver duro_example.launch.py
 
 ### Run MCAP Image
 ```bash
-docker run -it --rm -v /home/nvidia/bag/:/bag --privileged=true --network=host --name mcap1 drone:mcap 
+docker run -it --rm -v /home/nvidia/bag/:/bag --privileged=true --network=host --ipc=host --pid=host --name mcap1 drone:mcap 
 ```
 
 ### Run LIDAR Image
 ```bash
-docker run -it --rm --privileged=true --network=host --name lidar1 drone:lidar
+docker run -it --rm --privileged=true --network=host --ipc=host --pid=host --name lidar1 drone:lidar
 ```
 ### Run Jetson Humble Image
 
 It's just a base image, but in case you need it:
 
 ```bash
-docker run -it --rm --privileged=true --network=host --name jetson1 drone:jetson 
+docker run -it --rm --privileged=true --network=host --ipc=host --pid=host --name jetson1 drone:jetson 
 ```
 
 

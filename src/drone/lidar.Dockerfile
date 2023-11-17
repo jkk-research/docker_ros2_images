@@ -29,7 +29,7 @@ RUN mkdir -p /home/ros2_ws/src \
     && cd /home/ros2_ws \
     && source /opt/ros/humble/setup.bash \
     # && rosdep install --from-paths src/ -y -r --ignore-src \
-    && colcon build --packages-select ouster_ros ouster_sensor_msgs drone_bringup --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
+    && colcon build --packages-select ouster_ros ouster_sensor_msgs drone_bringup time_utils --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 
 # ros2 launch drone_bringup lidar1.launch.py
 # ros2 launch ouster_ros sensor.launch.xml sensor_hostname:=os-992215001101.local viz:=false

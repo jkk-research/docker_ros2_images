@@ -6,5 +6,7 @@ echo "ROS_DISTRO: $ROS_DISTRO LSB_REL: $LSB_REL"
 
 source /opt/ros/$ROS_DISTRO/setup.bash
 source /home/ros2_ws/install/local_setup.bash
+echo "ros2 launch drone_bringup lidar1.launch.py"
+date
 
 /bin/bash

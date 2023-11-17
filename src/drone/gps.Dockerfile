@@ -29,7 +29,7 @@ RUN mkdir -p /home/ros2_ws/src \
     && git clone https://github.com/jkk-research/jkk_utils \
     && cd /home/ros2_ws \
     && source /opt/ros/humble/setup.bash \
-    && colcon build --packages-select duro_gps_driver drone_bringup
+    && colcon build --packages-select duro_gps_driver drone_bringup time_utils
 
 ## ros2 launch drone_bringup gps1.launch.py
 ## ros2 launch duro_gps_driver duro_example.launch.py

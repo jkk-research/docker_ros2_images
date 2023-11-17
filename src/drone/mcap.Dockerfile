@@ -23,7 +23,7 @@ RUN mkdir -p /home/ros2_ws/src \
     && git clone https://github.com/jkk-research/jkk_utils \
     && cd /home/ros2_ws \
     && source /opt/ros/humble/setup.bash \
-    && colcon build --packages-select drone_bringup --symlink-install
+    && colcon build --packages-select drone_bringup time_utils --symlink-install
 
 WORKDIR /home
 COPY ./scripts/mcap_entrypoint.sh .
