@@ -1,6 +1,8 @@
 # docker_ros2_images
 ROS2 docker images
 
+[![Static Badge](https://img.shields.io/badge/ROS_2-Humble-34aec5)](https://docs.ros.org/en/humble/)
+
 ## Structure
 
 ```mermaid
@@ -27,9 +29,16 @@ docker build -f jetson.Dockerfile -t drone:jetson .
 ```
 
 ```bash
-docker build -f lidar.Dockerfile -t drone:lidar .
+docker build -f gps.Dockerfile -t drone:gps .
 ```
 
+```bash
+docker build -f mcap.Dockerfile -t drone:mcap .
+```
+
+```bash
+docker build -f lidar.Dockerfile -t drone:lidar .
+```
 
 
 ### Run GPS Image
@@ -38,7 +47,7 @@ docker run -it --rm --privileged=true --network=host --ipc=host --pid=host --nam
 ```
 
 ``` bash
-ros2 launch duro_gps_driver duro_example.launch.py
+ros2 launch drone_bringup gps1.launch.py
 ```
 
 ### Run MCAP Image
@@ -46,16 +55,32 @@ ros2 launch duro_gps_driver duro_example.launch.py
 docker run -it --rm -v /home/nvidia/bag/:/bag --privileged=true --network=host --ipc=host --pid=host --name mcap1 drone:mcap 
 ```
 
+```bash
+cd /home/ros2_ws/src/jkk_utils/drone_bringup/etc && ./record_mcap1.sh drone1_
+```
+
+
 ### Run LIDAR Image
 ```bash
 docker run -it --rm --privileged=true --network=host --ipc=host --pid=host --name lidar1 drone:lidar
 ```
+
+```bash
+ros2 launch drone_bringup lidar1.launch.py
+```
+
 ### Run Jetson Humble Image
 
-It's just a base image, but in case you need it:
+**Note**: It's just a base image, but in case you need it:
 
 ```bash
 docker run -it --rm --privileged=true --network=host --ipc=host --pid=host --name jetson1 drone:jetson 
+```
+
+### Copy
+``` bash
+rsync -avzh --progress nvidia@192.168.1.30:/home/nvidia/bag/ /home/he/bag/
+receiving incremental file list
 ```
 
 
