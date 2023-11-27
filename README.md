@@ -24,6 +24,8 @@ git clone https://github.com/jkk-research/docker_ros2_images
 cd docker_ros2_images/src/drone
 ```
 
+Optionally use `--no-cache --network=host` if you want to rebuild the entire image.
+
 ```bash
 docker build -f jetson.Dockerfile -t drone:jetson .
 ```
